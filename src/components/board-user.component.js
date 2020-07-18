@@ -165,7 +165,6 @@ export default class BoardUser extends Component {
     return (
         <div className="list row">
           <div className="col-md-6">
-            <h4>Wantlist</h4>
             <ul className="list-group">
               {comicWantlist &&
                 comicWantlist.sort((a, b) => a.searchableTitle > b.searchableTitle ? 1 : -1).map((comic, index) => (
@@ -185,9 +184,8 @@ export default class BoardUser extends Component {
 
           <div className="col-md-6">
             {currentComic ? (
-              <div>
-                <h4>Comic</h4>
-                <img height="400px" src={this.state.marvelUrl}>
+              <div className="backgroundColor fitContent lightText">
+                <img width="260px" src={this.state.marvelUrl}>
                 </img>
                 <div>
                   <label>
@@ -223,9 +221,7 @@ export default class BoardUser extends Component {
               </button>
               </div>
             ) : (
-              <div>
-                <br />
-                <p>Please click on a Comic...</p>
+              <div className="displayNone">
               </div>
             )}
           </div>

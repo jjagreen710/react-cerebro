@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, NavLink } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
@@ -47,39 +47,36 @@ class App extends Component {
 
     return (
       <Router>
-        <div>
+        <div className="justin-background">
           <nav className="navbar navbar-expand navbar-dark bg-dark">
-            <Link to={"/"} className="navbar-brand">
-              Cerebro
-            </Link>
             <div className="navbar-nav mr-auto">
               <li className="nav-item">
-                <Link to={"/comic/search"} className="nav-link">
+                <NavLink to={"/comic/search"} className="nav-link">
                   Search
-                </Link>
+                </NavLink>
               </li>
 
               {showModeratorBoard && (
                 <li className="nav-item">
-                  <Link to={"/mod"} className="nav-link">
+                  <NavLink to={"/mod"} className="nav-link">
                     Moderator Board
-                  </Link>
+                  </NavLink>
                 </li>
               )}
 
               {showAdminBoard && (
                 <li className="nav-item">
-                  <Link to={"/comic/admin"} className="nav-link">
+                  <NavLink to={"/comic/admin"} className="nav-link">
                     Add Comics
-                  </Link>
+                  </NavLink>
                 </li>
               )}
 
               {currentUser && (
                 <li className="nav-item">
-                  <Link to={"/wantlist"} className="nav-link">
+                  <NavLink to={"/wantlist"} className="nav-link">
                     Wantlist
-                  </Link>
+                  </NavLink>
                 </li>
               )}
             </div>
@@ -87,9 +84,9 @@ class App extends Component {
             {currentUser ? (
               <div className="navbar-nav ml-auto">
                 <li className="nav-item">
-                  <Link to={"/profile"} className="nav-link">
+                  <NavLink to={"/profile"} className="nav-link">
                     {currentUser.username}
-                  </Link>
+                  </NavLink>
                 </li>
                 <li className="nav-item">
                   <a href="/login" className="nav-link" onClick={this.logOut}>
@@ -100,15 +97,15 @@ class App extends Component {
             ) : (
               <div className="navbar-nav ml-auto">
                 <li className="nav-item">
-                  <Link to={"/login"} className="nav-link">
+                  <NavLink to={"/login"} className="nav-link">
                     Login
-                  </Link>
+                  </NavLink>
                 </li>
 
                 <li className="nav-item">
-                  <Link to={"/register"} className="nav-link">
+                  <NavLink to={"/register"} className="nav-link">
                     Sign Up
-                  </Link>
+                  </NavLink>
                 </li>
               </div>
             )}

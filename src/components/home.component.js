@@ -6,6 +6,7 @@ import UserService from "../services/user.service";
 import { Link } from "react-router-dom";
 import AuthService from "../services/auth.service";
 
+
 export default class Home extends Component {
   constructor(props) {
     super(props);
@@ -47,7 +48,6 @@ export default class Home extends Component {
     //     });
     //   }
     // );
-    this.retrieveComics();
 
     const user = AuthService.getCurrentUser();
 
@@ -168,7 +168,7 @@ getCoverImage() {
             />
             <div className="input-group-append">
               <button
-                className="btn btn-outline-secondary"
+                className="btn searchButton"
                 type="button"
                 onClick={this.searchTitle}
               >
@@ -179,7 +179,6 @@ getCoverImage() {
         </div>
 
         <div className="col-md-6">
-          <h4>Comics List</h4>
           <ul className="list-group">
             {comics &&
               comics.sort((a, b) => a.searchableTitle > b.searchableTitle ? 1 : -1).map((comic, index) => (
@@ -197,11 +196,10 @@ getCoverImage() {
           </ul>
         </div>
 
-        <div className="col-md-6">
+        <div>
           {currentComic ? (
-            <div>
-              <h4>Comic</h4>
-              <img height="400px" src={this.state.marvelUrl}>
+            <div className="backgroundColor fitContent lightText">
+              <img width="260px" src={this.state.marvelUrl}>
                 </img>
               <div>
                 <label>
@@ -256,9 +254,7 @@ getCoverImage() {
             </div>
 
           ) : (
-            <div>
-              <br />
-              <p>Please click on a Comic...</p>
+            <div className="displayNone">
             </div>
           )}
         </div>

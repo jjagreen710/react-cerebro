@@ -140,7 +140,7 @@ export default class BoardAdmin extends Component {
 
   render() {
     return (
-      <div className="submit-form">
+      <div className="submit-form backgroundColor lightText" style={{padding: "10px"}}>
         {this.state.submitted ? (
           <div>
             <h4>You submitted successfully!</h4>
